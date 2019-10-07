@@ -12,8 +12,12 @@ export class FlightSearchComponent implements OnInit {
 
   from = 'Hamburg';
   to = 'Graz';
-  flights: Flight[] = [];
+  //flights: Flight[] = [];
   selectedFlight: Flight;
+
+  get flights() {
+    return this.flightService.flights;
+  }
   
   constructor(private flightService: FlightService) { }
 
@@ -24,11 +28,8 @@ export class FlightSearchComponent implements OnInit {
     //console.log('perform search', this.from, this.to);
 
     this.flightService
-      .find(this.from, this.to)
-      .subscribe(
-        flights => this.flights = flights,
-        err => console.error('Error loading flights', err)
-      );
+      .load(this.from, this.to);
+      
   }
 
   select(f: Flight): void {

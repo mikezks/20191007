@@ -8,8 +8,17 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class FlightService {
+  flights: Flight[] = [];
 
   constructor(private http: HttpClient) { }
+
+  load(from: string, to: string): void {
+    this.find(from, to)
+      .subscribe(
+        flights => this.flights = flights,
+        err => console.error('Error loading flights', err)
+      );
+  }
 
   find(from: string, to: string): Observable<Flight[]> {
     const url = './api/flight';
