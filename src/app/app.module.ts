@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { CityPipe } from './shared/pipes/city.pipe';
+import { StatusColorPipe } from './shared/pipes/status-color.pipe';
 
 @NgModule({
    imports: [
@@ -20,7 +21,8 @@ import { CityPipe } from './shared/pipes/city.pipe';
       SidebarComponent,
       NavbarComponent,
       FlightSearchComponent,
-      CityPipe
+      CityPipe,
+      StatusColorPipe
    ],
    providers: [],
    bootstrap: [
