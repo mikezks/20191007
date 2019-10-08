@@ -13,9 +13,18 @@
                     class="form-control"
                     required
                     minlength="3">
-                <pre *ngIf="f?.controls['from']?.invalid">From is invalid.</pre>
-                <pre *ngIf="f?.controls['from']?.hasError('required')">This field is mandatory.</pre>
-                <pre *ngIf="f?.controls['from']?.hasError('minlength')">This field needs to have an input of at least 3 chars.</pre>
+                <pre *ngIf="
+                    f?.controls['from']?.touched &&
+                    f?.controls['from']?.invalid">
+                    From is invalid.</pre>
+                <pre *ngIf="
+                    f?.controls['from']?.touched &&
+                    f?.controls['from']?.hasError('required')">
+                    This field is mandatory.</pre>
+                <pre *ngIf="
+                    f?.controls['from']?.touched &&
+                    f?.controls['from']?.hasError('minlength')">
+                    This field needs to have an input of at least 3 chars.</pre>
             </div>
             <div class="form-group">
                 <label>To:</label>
@@ -24,6 +33,18 @@
                     name="to"
                     class="form-control"
                     required>
+                <pre *ngIf="
+                    f?.controls['to']?.touched &&
+                    f?.controls['to']?.invalid"
+                    >From is invalid.</pre>
+                <pre *ngIf="
+                    f?.controls['to']?.touched &&
+                    f?.controls['to']?.hasError('required')"
+                    >This field is mandatory.</pre>
+                <pre *ngIf="
+                    f?.controls['to']?.touched &&
+                    f?.controls['to']?.hasError('minlength')"
+                    >This field needs to have an input of at least 3 chars.</pre>
             </div>
         
             <div class="form-group">
