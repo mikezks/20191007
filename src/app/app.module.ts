@@ -6,23 +6,21 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { FlightSearchComponent } from './flight-search/flight-search.component';
-import { CityPipe } from './shared/pipes/city.pipe';
-import { StatusColorPipe } from './shared/pipes/status-color.pipe';
+import { FlightSearchComponent } from './flight-booking/flight-search/flight-search.component';
+import { SharedModule } from './shared/shared.module';
+import { FlightBookingModule } from './flight-booking/flight-booking.module';
 
 @NgModule({
    imports: [
       BrowserModule,
       HttpClientModule,
-      FormsModule,
+      FlightBookingModule,
+      SharedModule
    ],
    declarations: [
       AppComponent,
       SidebarComponent,
-      NavbarComponent,
-      FlightSearchComponent,
-      CityPipe,
-      StatusColorPipe
+      NavbarComponent
    ],
    providers: [],
    bootstrap: [

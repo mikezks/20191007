@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Flight } from '../entities/flight';
+import { Flight } from '../../entities/flight';
 import { HttpParams, HttpHeaders, HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
