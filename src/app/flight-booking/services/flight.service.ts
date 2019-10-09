@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Flight } from '../../entities/flight';
 import { HttpParams, HttpHeaders, HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
@@ -9,6 +9,10 @@ import { tap } from 'rxjs/operators';
 })
 export class FlightService {
   flights: Flight[] = [];
+  filterState$ = new BehaviorSubject<{ from: string, to: string }>({
+    from: '',
+    to: ''
+  });
 
   constructor(private http: HttpClient) { }
 
