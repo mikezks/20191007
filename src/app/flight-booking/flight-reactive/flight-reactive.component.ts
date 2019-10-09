@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { timer, Observable, Subscription, Subject } from 'rxjs';
-import { tap, share, take, takeUntil } from 'rxjs/operators';
+import { tap, share, take, takeUntil, switchMap } from 'rxjs/operators';
+import { FlightService } from '../services/flight.service';
 
 @Component({
   selector: 'app-flight-reactive',
@@ -12,10 +13,10 @@ export class FlightReactiveComponent implements OnInit, OnDestroy {
   timerSubscription: Subscription;
   destroySubject = new Subject<boolean>();
   
-  constructor() { }
+  constructor(private flightService: FlightService) { }
   
   ngOnInit() {
-    this.timer$ = timer(0, 1000)
+    this.timer$ = timer(0, 3000)
       .pipe(
         tap(num => console.log('Observable implementation', num)),
         share()
@@ -28,6 +29,17 @@ export class FlightReactiveComponent implements OnInit, OnDestroy {
           //take(5)
         )
         .subscribe(num => console.log('TS Subscription', num));
+
+    const outerStreamTimeTimer = this.timer$;
+    const innerStreamHttpCall = this.flightService.find('Hamburg', 'Graz');
+
+    outerStreamTimeTimer
+      .pipe(
+        switchMap(() => innerStreamHttpCall)
+      )
+      .subscribe(
+        flights => console.log(flights)
+      );
   }
 
   ngOnDestroy(): void {
