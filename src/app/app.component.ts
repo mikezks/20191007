@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent  {
   title = 'Hello Angular!';
-  toggleFlightSearch = false;
-  toggleFlightReactive = true;
+  components = [
+    { key: 'flight-search', label: 'Flight Search' },
+    { key: 'flight-edit', label: 'Flight Edit' },
+    { key: 'flight-reactive', label: 'Flight Reactive' }
+  ];
+  showComponent = this.components[1].key;
 }

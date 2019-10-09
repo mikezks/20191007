@@ -8,17 +8,17 @@
         <navbar-cmp></navbar-cmp>
 
         <div class="content">
-            <button
-                (click)="toggleFlightSearch = !toggleFlightSearch"
-                class="btn btn-default btn-toggle">Toggle Flight Search</button>
-            
-            <button
-                (click)="toggleFlightReactive = !toggleFlightReactive"
-                class="btn btn-default btn-toggle">Toggle Flight Reactive</button>
             <!-- <h1>{{title}}</h1> -->
+            <button
+                *ngFor="let c of components"
+                (click)="showComponent = c.key"
+                class="btn btn-default btn-toggle">{{ c.label }}</button>
             
-            <app-flight-search *ngIf="toggleFlightSearch"></app-flight-search>
-            <app-flight-reactive *ngIf="toggleFlightReactive"></app-flight-reactive>
+            <ng-container [ngSwitch]="showComponent">
+                <app-flight-search *ngSwitchCase="'flight-search'"></app-flight-search>
+                <app-flight-edit *ngSwitchCase="'flight-edit'"></app-flight-edit>
+                <app-flight-reactive *ngSwitchCase="'flight-reactive'"></app-flight-reactive>
+            </ng-container>
         </div>
     </div>
 

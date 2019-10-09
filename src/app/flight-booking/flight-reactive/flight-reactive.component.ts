@@ -33,13 +33,13 @@ export class FlightReactiveComponent implements OnInit, OnDestroy {
     const outerStreamTimeTimer = this.timer$;
     const innerStreamHttpCall = this.flightService.find('Hamburg', 'Graz');
 
-    outerStreamTimeTimer
+    /* outerStreamTimeTimer
       .pipe(
         switchMap(() => innerStreamHttpCall)
       )
       .subscribe(
         flights => console.log(flights)
-      );
+      ); */
   }
 
   ngOnDestroy(): void {

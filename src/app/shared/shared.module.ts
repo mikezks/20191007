@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CityPipe } from './pipes/city.pipe';
 import { StatusColorPipe } from './pipes/status-color.pipe';
 import { CityValidatorDirective } from './validators/city-validator.directive';
@@ -15,13 +15,15 @@ import { CityValidatorDirective } from './validators/city-validator.directive';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     FormsModule,
     CityPipe,
     StatusColorPipe,
-    CityValidatorDirective
+    CityValidatorDirective,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }
