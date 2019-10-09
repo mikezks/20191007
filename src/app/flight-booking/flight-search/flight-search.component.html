@@ -12,19 +12,24 @@
                     name="from"
                     class="form-control"
                     required
-                    minlength="3">
+                    minlength="3"
+                    city>
                 <pre *ngIf="
                     f?.controls['from']?.touched &&
-                    f?.controls['from']?.invalid">
-                    From is invalid.</pre>
+                    f?.controls['from']?.invalid"
+                    >From is invalid.</pre>
                 <pre *ngIf="
                     f?.controls['from']?.touched &&
-                    f?.controls['from']?.hasError('required')">
-                    This field is mandatory.</pre>
+                    f?.controls['from']?.hasError('required')"
+                    >This field is mandatory.</pre>
                 <pre *ngIf="
                     f?.controls['from']?.touched &&
-                    f?.controls['from']?.hasError('minlength')">
-                    This field needs to have an input of at least 3 chars.</pre>
+                    f?.controls['from']?.hasError('minlength')"
+                    >This field needs to have an input of at least 3 chars.</pre>
+                <pre *ngIf="
+                    f?.controls['from']?.touched &&
+                    f?.controls['from']?.hasError('city')"
+                    >The entered city ist not whitelisted.</pre>
             </div>
             <div class="form-group">
                 <label>To:</label>
@@ -32,7 +37,9 @@
                     [(ngModel)]="to"
                     name="to"
                     class="form-control"
-                    required>
+                    required
+                    minlength="3"
+                    city>
                 <pre *ngIf="
                     f?.controls['to']?.touched &&
                     f?.controls['to']?.invalid"
@@ -45,6 +52,10 @@
                     f?.controls['to']?.touched &&
                     f?.controls['to']?.hasError('minlength')"
                     >This field needs to have an input of at least 3 chars.</pre>
+                <pre *ngIf="
+                    f?.controls['to']?.touched &&
+                    f?.controls['to']?.hasError('city')"
+                    >The entered city ist not whitelisted.</pre>
             </div>
         
             <div class="form-group">
