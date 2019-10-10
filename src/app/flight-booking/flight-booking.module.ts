@@ -6,6 +6,7 @@ import { FlightCardComponent } from './flight-card/flight-card.component';
 import { FlightReactiveComponent } from './flight-reactive/flight-reactive.component';
 import { FlightEditComponent } from './flight-edit/flight-edit.component';
 import { PassengerSearchComponent } from './passenger-search/passenger-search.component';
+import { FlightBookingRoutingModule } from './flight-booking-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PassengerSearchComponent } from './passenger-search/passenger-search.co
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    FlightBookingRoutingModule
   ],
   exports: [
     FlightSearchComponent,
