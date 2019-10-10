@@ -9,18 +9,23 @@ import { AppComponent } from './app.component';
 import { FlightSearchComponent } from './flight-booking/flight-search/flight-search.component';
 import { SharedModule } from './shared/shared.module';
 import { FlightBookingModule } from './flight-booking/flight-booking.module';
+import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
+import { routes } from './app.routes';
 
 @NgModule({
    imports: [
       BrowserModule,
       HttpClientModule,
       FlightBookingModule,
-      SharedModule
+      SharedModule,
+      RouterModule.forRoot(routes)
    ],
    declarations: [
       AppComponent,
       SidebarComponent,
-      NavbarComponent
+      NavbarComponent,
+      HomeComponent
    ],
    providers: [],
    bootstrap: [

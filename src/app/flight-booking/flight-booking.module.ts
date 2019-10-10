@@ -5,13 +5,15 @@ import { SharedModule } from '../shared/shared.module';
 import { FlightCardComponent } from './flight-card/flight-card.component';
 import { FlightReactiveComponent } from './flight-reactive/flight-reactive.component';
 import { FlightEditComponent } from './flight-edit/flight-edit.component';
+import { PassengerSearchComponent } from './passenger-search/passenger-search.component';
 
 @NgModule({
   declarations: [
     FlightSearchComponent,
     FlightCardComponent,
     FlightReactiveComponent,
-    FlightEditComponent
+    FlightEditComponent,
+    PassengerSearchComponent
   ],
   imports: [
     CommonModule,
