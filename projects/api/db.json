@@ -16,14 +16,14 @@
     },
     {
       "id": 3,
-      "from": "Hamburg",
-      "to": "Graz",
+      "from": "Wien",
+      "to": "Wien",
       "date": "2019-10-03T05:34:45.7018969+00:00",
       "delayed": false
     },
     {
       "id": 4,
-      "from": "Hamburg",
+      "from": "Wien",
       "to": "Graz",
       "date": "2019-10-03T07:34:45.7018969+00:00",
       "delayed": false
