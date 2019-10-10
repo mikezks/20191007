@@ -13,6 +13,7 @@ export class FlightService {
     from: '',
     to: ''
   });
+  flightById: Flight;
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +22,14 @@ export class FlightService {
       .subscribe(
         flights => this.flights = flights,
         err => console.error('Error loading flights', err)
+      );
+  }
+
+  loadById(id: number): void {
+    this.findById(id)
+      .subscribe(
+        flight => this.flightById = flight,
+        err => console.error('Error loading flight', err)
       );
   }
 
@@ -38,6 +47,32 @@ export class FlightService {
       .get<Flight[]>(url, { params, headers })
       .pipe(
         tap(flights => console.log('service side effect', flights))
+      );
+  }
+
+  findById(id: number): Observable<Flight> {
+    const url = './api/flight/' + id;
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json');
+
+    return this.http
+      .get<Flight>(url, { headers })
+      .pipe(
+        tap(flight => console.log('service side effect', flight))
+      );
+  }
+  
+  save(flight: Flight): Observable<Flight> {
+    const url = './api/flight/' + flight.id;
+
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json');
+
+    return this.http
+      .put<Flight>(url, flight, { headers })
+      .pipe(
+        tap(flight => console.log('service side effect', flight))
       );
   }
 }

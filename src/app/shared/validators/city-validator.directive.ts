@@ -15,7 +15,8 @@ export class CityValidatorDirective implements Validator {
 	validate(control: AbstractControl): ValidationErrors | null {
 		const validCities = [
 			'Hamburg',
-			'Graz'
+			'Graz',
+			'Wien'
 		];
 
 		if (control.value && validCities.indexOf(control.value) === -1) {

@@ -15,16 +15,20 @@ const routes: Routes = [
         component: FlightSearchComponent
       },
       {
-          path: 'flight-edit',
-          component: FlightEditComponent
+        path: 'flight-edit',
+        component: FlightEditComponent
       },
       {
-          path: 'flight-reactive',
-          component: FlightReactiveComponent
+        path: 'flight-edit/:id',
+        component: FlightEditComponent
       },
       {
-          path: 'passenger-search',
-          component: PassengerSearchComponent
+        path: 'flight-reactive',
+        component: FlightReactiveComponent
+      },
+      {
+        path: 'passenger-search',
+        component: PassengerSearchComponent
       }
     ]
   }
