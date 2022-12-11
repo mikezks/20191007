@@ -32,7 +32,7 @@
     "@nguniversal/module-map-ngfactory-loader": "8.1.1",
     "angular-oauth2-oidc": "^8.0.4",
     "core-js": "^2.5.1",
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "json-server": "^0.15.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
